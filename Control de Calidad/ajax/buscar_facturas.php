@@ -38,7 +38,7 @@
 		 $sWhere.=" WHERE facturas.id_cliente=clientes.id_cliente and facturas.id_vendedor=users.user_id and detalle_factura.id_producto=products.id_producto and detalle_factura.numero_factura=facturas.numero_factura";
 		if ( $_GET['q'] != "" )
 		{
-		$sWhere.= " and  (clientes.nombre_cliente like '%$q%' or facturas.numero_factura like '%$q%' or facturas.fecha_factura like '%$q%')";
+		$sWhere.= " and  (facturas.numero_factura like '$q')";
 			
 		}
 		
@@ -102,7 +102,6 @@
 					<td class="text-right">
 						<a href="editar_factura.php?id_factura=<?php echo $id_factura;?>" class='btn btn-default' title='Editar factura' ><i class="glyphicon glyphicon-edit"></i></a> 
 						
-						<a href="#" class='btn btn-default' title='Borrar factura' onclick="eliminar('<?php echo $numero_factura; ?>')"><i class="glyphicon glyphicon-trash"></i> </a>
 					</td>
 						
 					</tr>

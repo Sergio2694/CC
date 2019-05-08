@@ -14,7 +14,7 @@
 	$active_productos="active";
 	$active_clientes="";
 	$active_usuarios="";	
-	$title="Productos | Simple Invoice";
+	$title="Productos | Panadería La Esmeralda";
 ?>
 <!DOCTYPE html>
 <html lang="en">

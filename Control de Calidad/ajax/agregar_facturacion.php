@@ -63,7 +63,7 @@ $simbolo_moneda=get_row('perfil','moneda', 'id_perfil', 1);
 		<?php
 	}
 
-	$impuesto=get_row('perfil','impuesto', 'id_perfil', 1);
+	$impuesto=1;
 	$subtotal=number_format($sumador_total,2,'.','');
 	$total_iva=($subtotal * $impuesto )/100;
 	$total_iva=number_format($total_iva,2,'.','');

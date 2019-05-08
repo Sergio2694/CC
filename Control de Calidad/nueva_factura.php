@@ -9,7 +9,7 @@
 	$active_productos="";
 	$active_clientes="";
 	$active_usuarios="";	
-	$title="Nueva Orden de Envio | Simple Invoice";
+	$title="Nueva Orden de Envio | Panadería La Esmeralda";
 	
 	/* Connect To Database*/
 	require_once ("config/db.php");//Contiene las variables de configuracion para conectar a la base de datos
@@ -41,7 +41,7 @@
 				<div class="form-group row">
 				  <label for="nombre_cliente" class="col-md-1 control-label">Trabajador</label>
 				  <div class="col-md-3">
-					  <input type="text" class="form-control input-sm" id="nombre_cliente" placeholder="Selecciona un cliente" required>
+					  <input type="text" class="form-control input-sm" id="nombre_cliente" placeholder="Selecciona un Trabajador" required>
 					  <input id="id_cliente" type='hidden'>	
 				  </div>
 				  <label for="tel1" class="col-md-1 control-label">Teléfono</label>

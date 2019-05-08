@@ -5,6 +5,7 @@
         header("location: login.php");
 		exit;
         }
+    
 	
 	$active_facturas="active";
 	$active_productos="";
@@ -12,6 +13,18 @@
 	$active_usuarios="";	
 	$title="Lotes de Producción | Panaderia La Esmeralda";
 ?>
+
+<?php 
+function conectarse($host,$usuario,$password,$BBDD){ 
+   $link=mysql_connect($host,$usuario,$password) or die (mysql_error()); 
+   mysql_select_db($BBDD,$link) or die (mysql_error()); 
+   return $link; 
+} 
+	$link=conectarse("127.0.0.1", "root", "", "esmeraldadb");  
+	$sql = "SELECT SUM(cantidad) AS cantidad FROM detalle_factura"; 
+	$sql = mysql_query($sql, $link); 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -35,8 +48,8 @@
 				
 						<div class="form-group row">
 							<label for="q" class="col-md-2 control-label">Lotes de Producción</label>
-							<div class="col-md-5">
-								<input type="text" class="form-control" id="q" placeholder="Nombre del cliente o # de Orden de Envios" onkeyup='load(1);'>
+							<div class="col-md-4">
+								<input type="text" class="form-control" id="q" placeholder="Numero de lote" onkeyup='load(1);'>
 							</div>
 							
 							
@@ -47,6 +60,17 @@
 								<span id="loader"></span>
 							</div>
 							
+
+								
+							<?php 
+							
+								while($row = mysql_fetch_array($sql)) { ?>
+									<label class="col-md-3 control-label" style="font-style:italic;font-size: 14px; ">Consecutivo de Producción: <?php echo $row['cantidad']; ?> </label>
+							<?php
+								}
+							?>
+							
+								
 						</div>
 				
 				

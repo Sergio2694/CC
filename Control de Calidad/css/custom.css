@@ -5,6 +5,8 @@ http://work.smarchal.com/twbscolor/
 */
 .navbar-default {
   border-color: #2980b9;
+  background-image: url(../img/banner.jpg);
+
 }
 .navbar-default .navbar-brand {
   color: #ecf0f1;
