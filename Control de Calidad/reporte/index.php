@@ -55,7 +55,7 @@ while($r=$query->fetch_object()){ $clientes[]=$r; $n++;
 <script>
 $("#GenerarMysql").click(function(){
   var pdf = new jsPDF('l', 'mm', [337, 210]);
-  pdf.text(20,20,"Mostrando una Tabla con PHP y MySQL");
+  pdf.text(20,20,"Reporte totales por fecha y por Producto");
 
 
  

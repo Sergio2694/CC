@@ -196,7 +196,7 @@ while ($row=mysqli_fetch_array($sql))
 	$subtotal=number_format($sumador_total,2,'.','');
 	$total_iva=0;
 	$total_iva=0;
-	$total_factura=$subtotal+$total_iva;
+	$total_factura=$subtotal;
 ?>
 	  
         <tr>
