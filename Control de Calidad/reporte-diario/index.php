@@ -1,7 +1,7 @@
 <?php
 include "Conexion.php";
 $con=@mysqli_connect("127.0.0.1", "root", "", "esmeraldadb");
-$query=mysqli_query($con,"select (SELECT products.nombre_producto from products where products.id_producto = detalle_factura.id_producto) AS Producto, SUM(cantidad)  AS Cantidad, precio_venta AS Precio, fecha_factura AS Fecha, SUM(total_venta) AS Total FROM detalle_factura INNER JOIN facturas ON detalle_factura.numero_factura = facturas.numero_factura GROUP BY detalle_factura.id_producto, date(facturas.fecha_factura)");
+$query=mysqli_query($con,"select (SELECT products.nombre_producto from products where products.id_producto = detalle_factura.id_producto) AS Producto, SUM(cantidad) AS Cantidad, precio_venta AS Precio, fecha_factura AS Fecha, SUM(total_venta) AS Total FROM detalle_factura INNER JOIN facturas ON detalle_factura.numero_factura = facturas.numero_factura where date(fecha_factura) = CURRENT_DATE() GROUP BY detalle_factura.id_producto, date(facturas.fecha_factura)");
 $clientes = array();
 $n=0;
 
@@ -23,7 +23,7 @@ while($r=$query->fetch_object()){ $clientes[]=$r; $n++;
 
 <meta charset="utf-8">
 </head>
-<body style="background-image: url('../img/2.jpg');">
+<body style="background-image: url('../img/banner.jpg');">
     <br>
     <div class="container" style="text-align: center;">
       <div class="panel panel-default">
@@ -33,7 +33,7 @@ while($r=$query->fetch_object()){ $clientes[]=$r; $n++;
       <div class="row">
           <div class="col-md-12">
 
-            <h1>Crear el reporte general.</h1>
+            <h1>Crear un reporte diario</h1>
           </div>
           <div class="col-md-12">
             <p><strong>Continuar con la descarga...</strong></p>
@@ -55,7 +55,7 @@ while($r=$query->fetch_object()){ $clientes[]=$r; $n++;
 <script>
 $("#GenerarMysql").click(function(){
   var pdf = new jsPDF('l', 'mm', [337, 210]);
-  pdf.text(20,20,"Reporte totales por fecha y por Producto");
+  pdf.text(20,20,"Reporte de la fecha actual");
 
 
  
@@ -79,7 +79,7 @@ $("#GenerarMysql").click(function(){
 
 
 
-  pdf.save('ReporteGeneral.pdf');
+  pdf.save('ReporteDiario.pdf');
 
 });
 </script>

@@ -8,6 +8,8 @@ include('is_logged.php');//Archivo verifica que el usario que intenta acceder a 
            $errors[] = "Nombre vacío";
         } else if (empty($_POST['hora'])){
 			$errors[] = "Hora vacía";
+		}else if (empty($_POST['cantidad'])){
+			$errors[] = "Cantidad vacía";
 		}
 		
 		/* Connect To Database*/
@@ -16,16 +18,22 @@ include('is_logged.php');//Archivo verifica que el usario que intenta acceder a 
 		// escaping, additionally removing everything that could be (html/javascript-) code
 		$nombre=mysqli_real_escape_string($con,(strip_tags($_POST["nombre"],ENT_QUOTES)));
 		$hora=mysqli_real_escape_string($con,(strip_tags($_POST["hora"],ENT_QUOTES)));
+		$cantidad=mysqli_real_escape_string($con,(strip_tags($_POST["cantidad"],ENT_QUOTES)));
 
 		$sql="INSERT INTO empaque (emp_encargado, emp_fecha, num_factura) VALUES ('$nombre','$hora','$id_factura')";
 		
 
 		$query_new_insert = mysqli_query($con,$sql);
 
-		$sql_2="UPDATE facturas set estado_factura = 1 where numero_factura = ".$numero_factura;
+		$sql_2="UPDATE facturas set estado_factura = 2 where numero_factura = ".$numero_factura;
 		
 		
 		$query_new_insert_2 = mysqli_query($con,$sql_2);
+
+		$sql_3="UPDATE detalle_factura set cantidad = ". $cantidad ." where numero_factura = ".$numero_factura;
+		
+		
+		$query_new_insert_2 = mysqli_query($con,$sql_3);
 			if ($query_new_insert){
 				$messages[] = "Producto ha sido ingresado satisfactoriamente.";
 			} else{

@@ -84,8 +84,11 @@
 						$telefono_cliente=$row['telefono_cliente'];
 						$email_cliente=$row['email_cliente'];
 						$estado_factura=$row['estado_factura'];
-						if ($estado_factura==1){$text_estado="Terminado";$label_class='label-success';}
-						else{$text_estado="Pendiente";$label_class='label-warning';}
+						if ($estado_factura==2){$text_estado="Empacado";$label_class='label-success';}
+						else if ($estado_factura==3){$text_estado="Horneado";$label_class='label-warning';}
+						else if ($estado_factura==4){$text_estado="Producción";$label_class='label-warning';}
+						else if ($estado_factura==1){$text_estado="Pendiente";$label_class='label-warning';}
+
 						$total_venta=$row['total_venta'];
 						$cantidad=$row['cantidad'];
 						$precioventa=$row['precio_venta'];

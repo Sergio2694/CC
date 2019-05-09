@@ -20,6 +20,10 @@ include('is_logged.php');//Archivo verifica que el usario que intenta acceder a 
 		$sql="INSERT INTO produccion (prod_encargado, prod_fecha_hora, num_factura) VALUES ('$nombre','$hora','$id_factura')";
 		
 		$query_new_insert = mysqli_query($con,$sql);
+		$sql_2="UPDATE facturas set estado_factura = 4 where numero_factura = ".$numero_factura;
+		
+		
+		$query_new_insert_2 = mysqli_query($con,$sql_2);
 			if ($query_new_insert){
 				$messages[] = "Producto ha sido ingresado satisfactoriamente.";
 			} else{

@@ -33,6 +33,12 @@
 				</div>
 			  </div>
 			 
+			 <div class="form-group">
+				<label for="cantidad" class="col-sm-3 control-label">Cantidad</label>
+				<div class="col-sm-8">
+				  <input type="text" class="form-control" id="cantidad" name="cantidad" placeholder="Cantidad total de productos" required pattern="^[0-9]{1,5}(\.[0-9]{0,2})?$" title="Ingresa sólo números con 0 ó 2 decimales" maxlength="8">
+				</div>
+			  </div>
 			 
 			
 		  </div>

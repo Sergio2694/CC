@@ -24,6 +24,8 @@
 		<li class="<?php echo $active_clientes;?>"><a href="clientes.php"><i class='glyphicon glyphicon-user'></i> Trabajador</a></li>
 		<li class="<?php echo $active_usuarios;?>"><a href="usuarios.php"><i  class='glyphicon glyphicon-lock'></i> Usuarios</a></li>
     <li class="<?php echo $active_usuarios;?>"><a href="Reporte/index.php"><i  class='glyphicon glyphicon-download-alt'></i> Reporte</a></li>
+
+    <li class="<?php echo $active_usuarios;?>"><a href="reporte-diario/index.php"><i  class='glyphicon glyphicon-download-alt'></i> Reporte Diario</a></li>
        </ul>
       <ul class="nav navbar-nav navbar-right">
 		<li><a href="login.php?logout"><i class='glyphicon glyphicon-off'></i> Salir</a></li>
