@@ -65,7 +65,7 @@ function conectarse($host,$usuario,$password,$BBDD){
 							<?php 
 							
 								while($row = mysql_fetch_array($sql)) { ?>
-									<label class="col-md-3 control-label" style="font-style:italic;font-size: 14px; ">Consecutivo de Producción: <?php echo $row['cantidad']; ?> </label>
+									<label class="col-md-3 control-label" style="font-style:italic;font-size: 14px; ">Consecutivo de Producción: <?php echo $row['cantidad'] + 1967139; ?> </label>
 							<?php
 								}
 							?>
